@@ -4,7 +4,7 @@ Oops. I accidentally put my flag into this program and it spit out some garbage.
 
 created by jp_var03
 
-## From the decription of the challenge
+## From description
 
 The two files given are encrypt.py, the python file used to encrypt the plaintext, and encrypted.txt, the ciphertext.
 
