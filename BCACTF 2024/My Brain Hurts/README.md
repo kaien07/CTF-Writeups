@@ -10,7 +10,7 @@ The two files given are script.txt, the program used to encrypt the text, and st
 
 ## Understanding script.txt
 
-When I first opened script.txt, my face looked like this: o_O.
+When I first opened script.txt, my expression looked something like this: o_O.
 
 ```
 ,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,>,<----<++++++<---------<++<-<+++++<-------<+++++++++<-------<----<---<++++<--<+++<+++++++<+++<+<++<---------------<+++++<-------<---<----.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.
@@ -20,7 +20,7 @@ This is obviously not a conventionally used language, and so our first step woul
 
 Searching for a code detector on google yields https://creativetechguy.com/utilities/codedetector. Going onto this website and running the code through it gives us Javascript. But wait a second...that isn't Javascript! Unchecking the "Common Languages Only" checkmark gives us a different result: brainf*ck.
 
-Googling the language gives us its wikipedia page: https://en.wikipedia.org/wiki/Brainfuck. In there, it tells you what every symbol (there's only 6!) in the language does.
+Googling the language gives us its wikipedia page: https://en.wikipedia.org/wiki/Brainfuck. In there, it tells you what every symbol (there's only 6) in the language does.
 
 | Symbol | Description |
 | ------ | ----------- |
@@ -88,6 +88,26 @@ So with these explanations for the various symbols, we can go ahead and get a go
 
 c in this explanation is referring to a "cell", a byte of stored data. Since the script takes in 24 bytes of data, the flag is 24 characters long. In the line where the 23rd character is being modified, ```<---- //c23 = c23-4```, the minus sign ```-``` is referring to a decrease in its ascii value, hence if the character 'f' was stored in c23, the result of the modification would be the ASCII code of 'f' - 4, which is 66 - 4 = 62, which when converted from ASCII code to its corresponding value, produces the letter 'b'.
 
+Do take note that the script changes each letter, starting from the last letter of the flag (which remains unchanged) and works backwards, rather than starting from the first letter of the flag
+
 ## Obtaining the flag
 
-Since we have to reverse the function (this is a reverse engineering challenge after all), all we have to do is take each individual character of the ciphertext, and reverse the specific modification that was made with the script.
+Since we have to reverse the function (this is a reverse engineering challenge after all), all we have to do is take each individual character of the given string, and reverse the specific modification that was made with the script.
+
+We can use Python to do that:
+
+```
+changes = [-4, -3, -7, 5, -15, 2, 1, 3, 7, 3, -2, 4, -3, -4, -7, 9, -7, 5, -1, 2, -9, 6, -4, 0]
+with open("string.txt", 'r') as f:
+    data = f.readline()
+flag = ""
+for i in range(len(data)):
+    flag += chr(ord(data[i]) - changes[i])
+print(flag)
+```
+
+This script takes in the string as the variable data, and for every character in data, it reverses the change that was done to it, before concatenating the character to the variable flag, and finally printing the flag.
+
+What a fun new language. 
+
+Flag: bcactf{Br41n_fcK-1s-fUn}
