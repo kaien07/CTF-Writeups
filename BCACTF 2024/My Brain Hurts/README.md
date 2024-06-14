@@ -94,7 +94,7 @@ Do take note that the script changes each letter, starting from the last letter 
 
 Since we have to reverse the function (this is a reverse engineering challenge after all), all we have to do is take each individual character of the given string, and reverse the specific modification that was made with the script.
 
-We can use Python to do that:
+I did the reversing by changing every character of the flag by hand, but a better (and smarter) way would be to use Python to do it.
 
 ```
 changes = [-4, -3, -7, 5, -15, 2, 1, 3, 7, 3, -2, 4, -3, -4, -7, 9, -7, 5, -1, 2, -9, 6, -4, 0]
