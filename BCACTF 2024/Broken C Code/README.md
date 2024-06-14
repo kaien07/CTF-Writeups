@@ -1,4 +1,4 @@
-![image](https://github.com/kaien07/CTF-Writeups/assets/160471571/ba1d645d-30d8-45da-802d-edb5ed28bed0)# Broken C Code
+# Broken C Code
 
 Help! I was trying to make a flag printer but my C code just prints random garbage and I can't figure out why! Can you help me? Here's the file:
 
