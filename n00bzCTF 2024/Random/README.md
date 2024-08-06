@@ -4,6 +4,8 @@ I hid my password behind an impressive sorting machine. The machine is very luck
 
 Author: Connor Chang
 
+Solved by EliteCollapseZ
+
 ## From description
 
 There is a file provided, server.cpp, and a button to create an instance.
