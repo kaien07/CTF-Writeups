@@ -32,7 +32,7 @@ At the moment, the values of cell 1 is 110 and the final value of cell 2 is 0.
 
 `<[-]` The pointer moves back to cell 1, and runs a loop where it decreases the value in cell 1 by 1 until the value in cell 1 is 0. This is to reset the values of cell 1 and cell 2 for the next character.
 
-The value which we are the most interested in is the one in cell 1 before it is resetted. You may notice that it is actually the product number of '+' in `>+++++++++++` and the number of '+' in `[<++++++++++>-]`, or in this case, 11 * 10 = 110.
+The value which we are the most interested in is the one in cell 1 before it is resetted. You may notice that it is actually the product of the number of '+' in `>+++++++++++` and the number of '+' in `[<++++++++++>-]`, or in this case, 11 * 10 = 110.
 
 The corresponding character for the ASCII code 110 is `n`, which fits in with the flag format of `n00bz{}`.
 
